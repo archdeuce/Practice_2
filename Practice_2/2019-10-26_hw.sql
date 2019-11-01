@@ -53,3 +53,52 @@ WHERE price = (
 		SELECT MAX(Printer.price)
 		FROM Printer
 		)
+
+/*
+Написать SQL script для создания БД Компьютерная фирма
+http://www.sql-tutorial.ru/ru/book_firm_computer.html
+*/
+
+CREATE DATABASE ComputerFirm;
+
+USE ComputerFirm;
+
+--Product Table--
+CREATE TABLE Product (
+	maker VARCHAR(10) NOT NULL
+	,model VARCHAR(50) PRIMARY KEY
+	,type VARCHAR(10) NOT NULL
+	,
+	);
+
+--PC Table--
+CREATE TABLE PC (
+	code INT IDENTITY(1, 1) PRIMARY KEY
+	,model VARCHAR(50) NOT NULL
+	,speed SMALLINT NOT NULL
+	,ram SMALLINT NOT NULL
+	,hd REAL NOT NULL
+	,cd VARCHAR(10) NOT NULL
+	,price MONEY
+	);
+
+--Laptop Table--
+CREATE TABLE Laptop (
+	code INT IDENTITY(1, 1) PRIMARY KEY
+	,model VARCHAR(50) NOT NULL
+	,speed SMALLINT NOT NULL
+	,ram SMALLINT NOT NULL
+	,hd REAL NOT NULL
+	,price MONEY
+	,cd TINYINT NOT NULL
+	);
+
+--Printer Table--
+CREATE TABLE Printer (
+	code INT IDENTITY(1, 1) PRIMARY KEY
+	,model VARCHAR(50) NOT NULL
+	,color CHAR(1) NOT NULL
+	,ram SMALLINT NOT NULL
+	,type VARCHAR(10) NOT NULL
+	,price MONEY
+	);

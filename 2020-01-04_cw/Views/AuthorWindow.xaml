@@ -1,0 +1,113 @@
+﻿<Window
+    x:Class="_2020_01_04_cw.Views.AuthorWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:_2020_01_04_cw.Views"
+    xmlns:tools="clr-namespace:_2020_01_04_cw.Tools"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="400"
+    Height="300"
+    MinWidth="400"
+    MinHeight="300"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="CountryEnum" MethodName="GetValues"
+                        ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="tools:Country"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="LanguageEnum" MethodName="GetValues"
+                        ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="tools:Language"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <tools:IsNewToTextConverter x:Key="IsNewToTextConverter"/>
+        <tools:LanguageToColorConverter x:Key="LanguageToColorConverter"/>
+    </Window.Resources>
+    <Window.Title>
+        <Binding Converter="{StaticResource IsNewToTextConverter}" />
+    </Window.Title>
+    <Grid Background="{Binding ElementName=myLanguageComboBox, Path=SelectedItem, Converter={StaticResource LanguageToColorConverter}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Content="First Name" />
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            Content="Last Name" />
+        <Label
+            Grid.Row="2"
+            Grid.Column="0"
+            Content="Birth date" />
+        <Label
+            Grid.Row="3"
+            Grid.Column="0"
+            Content="Country" />
+        <Label
+            Grid.Row="4"
+            Grid.Column="0"
+            Content="Language" />
+        <Label
+            Grid.Row="5"
+            Grid.Column="0"
+            Content="Place of birth" />
+        <TextBox
+            Grid.Row="0"
+            Grid.Column="1"
+            Text="{Binding FirstName}" />
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="1"
+            Text="{Binding LastName}" />
+        <DatePicker
+            Grid.Row="2"
+            Grid.Column="1"
+            DisplayDate="{Binding BirthOfDate}" />
+        <ComboBox
+            Grid.Row="3"
+            Grid.Column="1"
+            ItemsSource="{Binding Source={StaticResource CountryEnum}}"
+            SelectedItem="{Binding Path=Country}"/>
+        <ComboBox
+            x:Name="myLanguageComboBox"
+            Grid.Row="4"
+            Grid.Column="1"
+            ItemsSource="{Binding Source={StaticResource LanguageEnum}}" 
+            SelectedItem="{Binding Path=Language}"
+            />
+        <TextBox
+            Grid.Row="5"
+            Grid.Column="1"
+            Text="{Binding PlaceOfBirth}" />
+        <Button
+            Grid.Row="6"
+            Grid.Column="0"
+            Margin="5"
+            Command="tools:CustomCommands.OkCommand"
+            Content="Ok" />
+        <Button
+            Grid.Row="6"
+            Grid.Column="1"
+            Margin="5"
+            Command="tools:CustomCommands.CancelCommand"
+            Content="Cancel" />
+    </Grid>
+</Window>

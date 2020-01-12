@@ -1,0 +1,123 @@
+﻿<Window
+    x:Class="Task_2.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Task_2"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="mock-up layout"
+    Width="600"
+    Height="600"
+    mc:Ignorable="d">
+    <Grid DataContext="{Binding ElementName=myDataGrid, Path=SelectedItem}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.08*" />
+            <RowDefinition />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.1*" />
+        </Grid.RowDefinitions>
+        <ToolBar Grid.Row="0" Grid.ColumnSpan="4">
+            <Menu>
+                <MenuItem Header="_File">
+                    <MenuItem Command="ApplicationCommands.New" Header="_New" />
+                    <MenuItem Command="ApplicationCommands.Delete" Header="_Delete" />
+                </MenuItem>
+                <MenuItem Header="_Tools">
+                    <MenuItem Command="local:CustomCommands.MyCommand" Header="_Show" />
+                </MenuItem>
+            </Menu>
+        </ToolBar>
+        <DataGrid
+            x:Name="myDataGrid"
+            Grid.Row="1"
+            Grid.ColumnSpan="4"
+            Margin="5"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            IsSynchronizedWithCurrentItem="True"
+            SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="80"
+                    Binding="{Binding Id}"
+                    Header="id" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding FullName}"
+                    Header="name" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Department}"
+                    Header="department" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button
+            x:Name="newButton"
+            Grid.Row="4"
+            Margin="5"
+            Command="ApplicationCommands.New"
+            Content="New" />
+        <Button
+            x:Name="deleteButton"
+            Grid.Row="4"
+            Grid.Column="1"
+            Margin="5"
+            Command="ApplicationCommands.Delete"
+            Content="Delete" />
+        <Button
+            x:Name="showButton"
+            Grid.Row="4"
+            Grid.Column="3"
+            Margin="5"
+            Command="local:CustomCommands.MyCommand"
+            Content="Show" />
+        <Label
+            x:Name="nameLabel"
+            Grid.Row="2"
+            Margin="5"
+            Content="Name" />
+        <Label
+            x:Name="hiredDateLabel"
+            Grid.Row="3"
+            Margin="5"
+            Content="Hired date" />
+        <Label
+            x:Name="departmentLabel"
+            Grid.Row="2"
+            Grid.Column="2"
+            Margin="5"
+            Content="Department" />
+        <CheckBox
+            x:Name="isManagerCheckBox"
+            Grid.Row="3"
+            Grid.Column="2"
+            Margin="5"
+            Content="Is manager"
+            IsChecked="{Binding IsManager}" />
+        <TextBox
+            x:Name="nameTextBox"
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="5"
+            Text="{Binding FullName}" />
+        <TextBox
+            x:Name="hiredDateTextBox"
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="5"
+            Text="{Binding HiredDate}" />
+        <TextBox
+            x:Name="departmentTextBox"
+            Grid.Row="2"
+            Grid.Column="3"
+            Margin="5"
+            Text="{Binding Department}" />
+    </Grid>
+</Window>

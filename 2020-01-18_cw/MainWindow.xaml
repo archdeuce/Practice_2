@@ -1,0 +1,35 @@
+﻿<Window
+    x:Class="_2020_01_18_cw.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_2020_01_18_cw"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="clr-namespace:_2020_01_18_cw.ViewModel"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <viewmodel:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0.1*" />
+        </Grid.RowDefinitions>
+        <DataGrid
+            Grid.ColumnSpan="2"
+            AutoGenerateColumns="True"
+            ItemsSource="{Binding Customers}" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            Command="{Binding ShowCommand}"
+            Content="Show" />
+    </Grid>
+</Window>

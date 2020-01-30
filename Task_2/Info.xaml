@@ -1,0 +1,77 @@
+﻿<Window
+    x:Class="Task_2.Info"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Task_2"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Info"
+    Width="400"
+    Height="400"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="boolConv" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            Content="Employee Information" />
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            Background="Blue"
+            BorderThickness="1"
+            Content="Is Manager"
+            Foreground="yellow"
+            Visibility="{Binding Path=IsManager, Converter={StaticResource boolConv}}" />
+        <Label
+            Grid.Row="2"
+            Grid.Column="0"
+            Content="Id" />
+        <Label
+            Grid.Row="3"
+            Grid.Column="0"
+            Content="Name" />
+        <Label
+            Grid.Row="4"
+            Grid.Column="0"
+            Content="Department" />
+        <Label
+            Grid.Row="5"
+            Grid.Column="0"
+            Content="Hired date" />
+        <Label
+            Grid.Row="2"
+            Grid.Column="1"
+            Content="{Binding Id}" />
+        <Label
+            Grid.Row="3"
+            Grid.Column="1"
+            Content="{Binding FullName}" />
+        <Label
+            Grid.Row="4"
+            Grid.Column="1"
+            Content="{Binding Department}" />
+        <Label
+            Grid.Row="5"
+            Grid.Column="1"
+            Content="{Binding HiredDate}" />
+
+    </Grid>
+</Window>

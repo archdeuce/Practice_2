@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29409.12
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice_2", "Practice_2\Practice_2.csproj", "{35982F46-0A41-44B4-9384-C576D4DD29CE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2020-01-25_cw", "2020-01-25_cw\2020-01-25_cw.csproj", "{243A137E-B6D0-452C-83DF-A05EBC327003}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Style_1", "Style_1\Style_1.csproj", "{DB29D150-ED1D-4A9E-9B1E-5896038135C7}"
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{35982F46-0A41-44B4-9384-C576D4DD29CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35982F46-0A41-44B4-9384-C576D4DD29CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35982F46-0A41-44B4-9384-C576D4DD29CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35982F46-0A41-44B4-9384-C576D4DD29CE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{243A137E-B6D0-452C-83DF-A05EBC327003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{243A137E-B6D0-452C-83DF-A05EBC327003}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{243A137E-B6D0-452C-83DF-A05EBC327003}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -62,6 +56,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D3AD90DC-1612-422B-8ED1-F96E204356B4}
+		SolutionGuid = {CC844657-3E9D-4142-9F9F-2286C38002AC}
 	EndGlobalSection
 EndGlobal

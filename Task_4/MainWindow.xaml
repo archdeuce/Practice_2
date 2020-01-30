@@ -1,0 +1,120 @@
+﻿<Window
+    x:Class="Task_4.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Task_4"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="clr-namespace:Task_4.ViewModel"
+    Title="MainWindow"
+    Width="600"
+    Height="600"
+    MinWidth="600"
+    MinHeight="600"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <viewmodel:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <DataGrid
+            x:Name="myDataGrid"
+            Grid.ColumnSpan="4"
+            Margin="5,5,5,5"
+            AlternatingRowBackground="LightCyan"
+            AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            IsReadOnly="False"
+            IsSynchronizedWithCurrentItem="True"
+            ItemsSource="{Binding Employees}"
+            SelectedItem="{Binding SelectedEmployee}"
+            SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="80"
+                    Binding="{Binding Id}"
+                    Header="id" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding FullName}"
+                    Header="name" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Department}"
+                    Header="department" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button
+            x:Name="newButton"
+            Grid.Row="3"
+            Margin="5"
+            Command="{Binding NewCommand}"
+            Content="New" />
+        <Button
+            x:Name="deleteButton"
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="5"
+            Command="{Binding DeleteCommand}"
+            Content="Delete" />
+        <Button
+            x:Name="showButton"
+            Grid.Row="3"
+            Grid.Column="3"
+            Margin="5"
+            Command="{Binding GetCommand}"
+            Content="Get" />
+        <Label
+            x:Name="nameLabel"
+            Grid.Row="1"
+            Margin="5"
+            Content="Name" />
+        <Label
+            x:Name="hiredDateLabel"
+            Grid.Row="2"
+            Margin="5"
+            Content="Hired date" />
+        <Label
+            x:Name="departmentLabel"
+            Grid.Row="1"
+            Grid.Column="2"
+            Margin="5"
+            Content="Department" />
+        <CheckBox
+            x:Name="isManagerCheckBox"
+            Grid.Row="2"
+            Grid.Column="2"
+            Margin="5"
+            Content="Is manager"
+            IsChecked="{Binding SelectedEmployee.IsManager}" />
+        <TextBox
+            x:Name="nameTextBox"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="5"
+            Text="{Binding SelectedEmployee.FullName}" />
+        <TextBox
+            x:Name="hiredDateTextBox"
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="5"
+            Text="{Binding SelectedEmployee.HiredDate}" />
+        <TextBox
+            x:Name="departmentTextBox"
+            Grid.Row="1"
+            Grid.Column="3"
+            Margin="5"
+            Text="{Binding SelectedEmployee.Department}" />
+    </Grid>
+</Window>

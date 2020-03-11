@@ -1,0 +1,52 @@
+﻿<UserControl
+    x:Class="Presentation.View.AddressDetailedView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Presentation.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding SelectedStudent.Address}"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel Margin="2">
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Content="Country" />
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{Binding Country}" />
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Content="City" />
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{Binding City}" />
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                Content="Street" />
+            <TextBox
+                Grid.Row="2"
+                Grid.Column="1"
+                Text="{Binding Street}" />
+
+            <Label
+                Grid.Row="3"
+                Grid.Column="0"
+                Content="PostalCode" />
+            <TextBox
+                Grid.Row="3"
+                Grid.Column="1"
+                Text="{Binding PostalCode}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

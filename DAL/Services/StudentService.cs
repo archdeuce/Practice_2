@@ -8,7 +8,6 @@ namespace DAL.Services
     public class StudentService : IStudentService
     {
         private StudentDbContext context;
-        private List<Student> students { get; set; }
 
         public StudentService()
         {
@@ -17,12 +16,12 @@ namespace DAL.Services
 
         public IEnumerable<Student> GetStudents()
         {
-            this.students = new List<Student>(this.context.Students.Include(s => s.Address).Include(s => s.Books));
-            return this.students;
+            return new List<Student>(this.context.Students.Include(s => s.Address).Include(s => s.Books));
         }
 
         public void SaveStudents(IEnumerable<Student> students)
         {
+            this.context.UpdateRange(students);
             this.context.SaveChanges();
         }
 

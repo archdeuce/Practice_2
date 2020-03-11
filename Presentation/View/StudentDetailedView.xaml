@@ -5,9 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Presentation.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    DataContext="{Binding SelectedStudent}"
     d:DesignHeight="300"
     d:DesignWidth="300"
+    DataContext="{Binding SelectedStudent}"
     mc:Ignorable="d">
     <Grid>
         <StackPanel Margin="2">
@@ -22,6 +22,12 @@
 
             <Label Content="Phone" />
             <TextBox Text="{Binding PhoneNumber}" />
+
+            <Label Content="DateOfBirth" />
+            <DatePicker SelectedDate="{Binding DateOfBirth}" />
+
+            <Label Content="EnteranceDate" />
+            <DatePicker SelectedDate="{Binding EnteranceDate}" />
 
             <Label Content="Books" />
             <TextBlock Text="{Binding Books.Count}" />

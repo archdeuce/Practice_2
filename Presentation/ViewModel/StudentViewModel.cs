@@ -95,10 +95,9 @@ namespace Presentation.ViewModel
         private void ExecuteAddStudent()
         {
             Student s = new Student().GetDefaultStudent();
-
             this.Students.Add(s);
-            this.studentService.AddStudent(s);
             this.ExecuteSaveStudents();
+            this.ExecuteGetStudents();
         }
 
         private bool CanExecuteAddStudent()
@@ -112,6 +111,7 @@ namespace Presentation.ViewModel
             this.Students.Remove(this.SelectedStudent);
             this.studentService.DeleteStudent(s);
             this.ExecuteSaveStudents();
+            this.ExecuteGetStudents();
         }
 
         private bool CanExecuteDelStudent()

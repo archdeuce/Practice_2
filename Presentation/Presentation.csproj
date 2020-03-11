@@ -11,22 +11,4 @@
     <ProjectReference Include="..\DAL\DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="DAL">
-      <HintPath>..\DAL\bin\Debug\netcoreapp3.1\DAL.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="View\StudentView.xaml.cs">
-      <DependentUpon>StudentView.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="View\StudentView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-
 </Project>

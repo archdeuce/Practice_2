@@ -12,13 +12,13 @@ namespace Presentation.ViewModel
         private Student selectedStudent;
         private Book selectedBook;
         private ObservableCollection<Student> students;
-        private IStudentService studentService;
+        private readonly IStudentService studentService;
 
         public ObservableCollection<Student> Students
         {
-            get 
-            { 
-                return this.students; 
+            get
+            {
+                return this.students;
             }
             set
             {
@@ -29,9 +29,9 @@ namespace Presentation.ViewModel
 
         public Student SelectedStudent
         {
-            get 
-            { 
-                return this.selectedStudent; 
+            get
+            {
+                return this.selectedStudent;
             }
             set
             {
@@ -60,7 +60,7 @@ namespace Presentation.ViewModel
 
         public StudentViewModel(IStudentService studentService)
         {
-            if (studentService == null) 
+            if (studentService == null)
                 throw new ArgumentNullException(nameof(studentService));
 
             this.studentService = studentService;
@@ -74,7 +74,6 @@ namespace Presentation.ViewModel
 
         private void ExecuteGetStudents()
         {
-            this.studentService = new StudentService();
             this.Students = this.studentService.GetStudents().ToObservableCollection();
         }
 

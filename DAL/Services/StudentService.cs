@@ -13,11 +13,11 @@ namespace DAL.Services
         public StudentService()
         {
             this.context = new StudentDbContext();
-            this.students = new List<Student>(this.context.Students.Include(s => s.Address).Include(s => s.Books));
         }
 
         public IEnumerable<Student> GetStudents()
         {
+            this.students = new List<Student>(this.context.Students.Include(s => s.Address).Include(s => s.Books));
             return this.students;
         }
 

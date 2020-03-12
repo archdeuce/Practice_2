@@ -10,11 +10,37 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //Program.Task2();
-            //Program.Task3();
-            Program.Task4();
+            Console.WriteLine("Task (1,2,3,4):");
+            string input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    Program.Task1();
+                    break;
+                case "2":
+                    Program.Task2();
+                    break;
+                case "3":
+                    Program.Task3();
+                    break;
+                case "4":
+                    Program.Task4();
+                    break;
+                default:
+                    Console.WriteLine("Wrong input. Press any key for exit.");
+                    break;
+            }
 
             Console.ReadKey();
+        }
+
+        public static void Task1()
+        {
+            Console.WriteLine("Task 1 Create Solution structure:");
+            Console.WriteLine("ConsoleUI project(net core console app)");
+            Console.WriteLine("DAL project(net core dll)");
+            Console.WriteLine("Complete!");
         }
 
         public static void Task2()
@@ -29,6 +55,8 @@ namespace ConsoleUI
 
             sr.InsertStudent(student);
             sr.Save();
+
+            Console.WriteLine("The student has been saved.");
         }
 
         public static void Task3()

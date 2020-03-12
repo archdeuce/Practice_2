@@ -11,6 +11,12 @@ namespace DAL.Models
         public DbSet<Department> Departments { get; set; }
         public DbSet<Student> Students { get; set; }
 
+        public UniversityDbContext()
+        {
+            this.Database.EnsureDeleted();
+            this.Database.EnsureCreated();
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLazyLoadingProxies().UseSqlServer(@"Database = UniversityDB; Trusted_Connection = True");

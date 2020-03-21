@@ -13,7 +13,7 @@ namespace DAL.Model
         public string Street { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public string ZipCode { get; set; }
+        public int ZipCode { get; set; }
 
         public ICollection<Staff> Staffs { get; set; }
         public ICollection<Order> Orders { get; set; }
